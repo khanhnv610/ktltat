@@ -14,7 +14,7 @@ int main()
     while(!file.eof())
     {
         getline(file,line);
-        data+= line;
+        data+= line+"\n";
     }
     //cout<<data<<endl;
     regex a("<\\s*a[^>]*>(.*?)<\\s*/\\s*a>");
