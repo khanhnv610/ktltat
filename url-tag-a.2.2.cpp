@@ -1,17 +1,26 @@
 #include<iostream>
 #include<string>
 #include <regex>
+#include <fstream>
+
 using namespace std;
 
 int main()
 {
+    ifstream file;
+    string data,line;
+    file.open("index.html");
+    //cout<<"file opening ...."<<endl;
+    while(!file.eof())
+    {
+        getline(file,line);
+        data+= line;
+    }
+    //cout<<data<<endl;
     regex a("<\\s*a[^>]*>(.*?)<\\s*/\\s*a>");
     regex href("href='(.*)'");
     regex href2("href=\"(.*)\"");
-    string st = "<a href='adfasf'></a>    <a href='abc'></a>";
-    string st2 = "<a href=\"adfasf\"></a>";
-
-    sregex_token_iterator pos(st.cbegin(),st.cend(),a,0);
+    sregex_token_iterator pos(data.cbegin(),data.cend(),a,0);
     sregex_token_iterator end;
     for ( ; pos!=end ; ++pos )
     {
