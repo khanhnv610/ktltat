@@ -34,5 +34,6 @@ int main()
         if(result2.size() > 0)
             cout<<result2[1]<<endl;
     }
+    file.close();
     return 0;
 }
